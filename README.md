@@ -1,14 +1,15 @@
 # fantasytiers
 lol
 
-I was super lazy.  Fill out the yaml file (only RB and WR).  Script hits Boris Chen's site for Flex Tiers.
-
-Right now this only helps with ranking your RB/WR and thus your flex spot.  Maybe in the future i'll do more. 
-
-Thanks Boris for your data (and fantasypros) ;)
-
-Output looks something like this:
-
+I was super lazy.  Fill out the yaml file (only RB and WR).  Script hits Boris Chen's site for Flex Tiers.<br/>
+<br/>
+Right now this only helps with ranking your RB/WR and thus your flex spot.  Maybe in the future i'll do more. <br/>
+<br/>
+Thanks Boris for your data (and fantasypros) ;)<br/>
+<br/>
+Output looks something like this:<br/>
+<br/>
+<pre>
 C:\Users\Jared\PycharmProjects\ffcheat\ffcheat>python ./fantasytiers.py
 +-----------------------+---------------------------------+
 |          Team         | Ranked Players (WR/RB Combined) |
@@ -44,3 +45,4 @@ C:\Users\Jared\PycharmProjects\ffcheat\ffcheat>python ./fantasytiers.py
 |                       |     Spiller - Tier 100 - RB     |
 |                       |                                 |
 +-----------------------+---------------------------------+
+</pre>

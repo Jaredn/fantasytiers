@@ -1,0 +1,63 @@
+---
+
+teams:
+  Crows Before Hoes:
+    - name: Frank Gore
+      position: RB
+    - name: Doug Martin
+      position: RB
+    - name: Antonio Brown
+      position: WR
+    - name: Odell Beckham
+      position: WR
+    - name: Amari Cooper
+      position: WR
+    - name: Arian Foster
+      position: RB
+    - name: Alfred Morris
+      position: RB
+    - name: Nelson Agholor
+      position: WR
+    - name: Golden Tate
+      position: WR
+  Admirals:
+    - name: Justin Forsett
+      position: RB
+    - name: Andre Ellington
+      position: RB
+    - name: Calvin Johnson
+      position: WR
+    - name: Antonio Brown
+      position: WR
+    - name: Doug Martin
+      position: RB
+    - name: Spiller
+      position: RB
+    - name: Shane Vereen
+      position: RB
+    - name: Anquan Boldin
+      position: WR
+    - name: Marques Colston
+      position: WR
+  Keeny Top Matt Bottom:
+    - name: Frank Gore
+      position: RB
+    - name: C.J. Anderson
+      position: RB
+    - name: Odell Beckham
+      position: WR
+    - name: Jordan Matthews
+      position: WR
+    - name: Brandon Marshall
+      position: WR
+    - name: Duke Johnson
+      position: RB
+    - name: Ryan Mathews
+      position: RB
+    - name: Vincent Jackson
+      position: WR
+    - name: Mike Wallace
+      position: WR
+
+
+...

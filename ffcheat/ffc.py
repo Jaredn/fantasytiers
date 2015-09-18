@@ -7,7 +7,7 @@ from fantasypros import FantasyPros, FantasyProsException
 from fantasytiers import FantasyTiers, FantasyTiersException
 
 # models
-from player_model import  PlayerModel
+from player_model import PlayerModel
 
 def load_teams(yaml_loc):
     with open(yaml_loc, 'r') as stream:
@@ -100,39 +100,6 @@ def main():
                 player.fp_std_dev
             ])
         print pt
-
-
-
-
-
-    # ranked_players_by_team = FT.rank_players()
-    #
-    # for team, players in ranked_players_by_team.iteritems():
-    #     pt = prettytable.PrettyTable(['Team', 'Player', 'Position', 'Tier', 'FP Rank', 'Opp', 'FPBest', 'FPWorst', 'FPAvg', 'FPStd_Dev'])
-    #     pt.align = 'r'
-    #     player_string = ''
-    #     for player in players:
-    #         try:
-    #             fp_player_data = FP.get_single_player_data(player['name'])
-    #             fp_player_rank = str(fp_player_data[0])
-    #             fp_player_name = str(fp_player_data[1])
-    #             fp_player_opp = str(fp_player_data[2])
-    #             fp_player_pos = str(fp_player_data[3])
-    #             fp_player_best = str(fp_player_data[4])
-    #             fp_player_worst = str(fp_player_data[5])
-    #             fp_player_avg = str(fp_player_data[6])
-    #             fp_player_stddev = str(fp_player_data[7])
-    #         except FantasyProsException:
-    #             fp_player_rank = 'N/A'
-    #             fp_player_name = 'N/A'
-    #             fp_player_opp = 'N/A'
-    #             fp_player_pos = 'N/A'
-    #             fp_player_best = 'N/A'
-    #             fp_player_worst = 'N/A'
-    #             fp_player_avg = 'N/A'
-    #             fp_player_stddev = 'N/A'
-    #         pt.add_row([team, '%s (%s)' % (player['name'], fp_player_name), fp_player_pos, player['tier'], fp_player_rank, fp_player_opp, fp_player_best, fp_player_worst, fp_player_avg, fp_player_stddev])
-    #     print pt
 
 if __name__ == '__main__':
     sys.exit(main())

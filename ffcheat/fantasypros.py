@@ -10,6 +10,7 @@ class FantasyProsException(Exception):
 class FantasyPros(object):
 
     fp_data = None
+
     def __init__(self, rankings_chart='qb-flex'):
         self.url = 'http://www.fantasypros.com/nfl/rankings/%s.php' % rankings_chart
         self.fp_data = self.get_fantasy_pros_data()

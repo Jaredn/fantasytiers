@@ -26,12 +26,10 @@ class FantasyTiers(object):
         for tier in tiers:
             tier_num = None
             tier_players = None
-            m = re.match('^Tier\s+(\d+):', tier)
+            m = re.match('^Tier\s+(\d+):(.*)', tier)
             if m:
                 tier_num = m.groups()[0]
-            m = re.match('^.*:(.*)', tier)
-            if m:
-                tier_players = m.groups()[0]
+                tier_players = m.groups()[1]
             if tier_num is not None and tier_players is not None:
                 tier_object.append({'tier': tier_num, 'players': tier_players})
         self.tiers = tier_object

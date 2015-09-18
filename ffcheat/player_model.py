@@ -1,5 +1,6 @@
 __author__ = 'Jared'
 
+
 class PlayerModel:
     """
     Class defining what a player object should contain
@@ -26,7 +27,7 @@ class PlayerModel:
         self.name = playername
 
     def __str__(self):
-        return "PlayerModel(%s)(%s)" % (self.name, self.fp_rank)
+        return "%s(%s)" % (self.__class__, self.name)
 
     def __repr__(self):
-        return "PlayerModel(%s)(%s)" % (self.name, self.fp_rank)
+        return "%s(%r)" % (self.__class__, self.__dict__)

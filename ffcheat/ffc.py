@@ -5,6 +5,7 @@ import prettytable
 import yaml
 from fantasypros import FantasyPros, FantasyProsException
 from fantasytiers import FantasyTiers, FantasyTiersException
+from draftkings import DraftKings, DraftKingsException
 
 # models
 from player_model import PlayerModel
@@ -20,10 +21,11 @@ def load_teams(yaml_loc):
         return local_teams
 
 
-def get_player_data_from_all_sources(player_object, FT, FP):
+def get_player_data_from_all_sources(player_object, FT, FP, DK=None):
     """
     :type FT: FantasyTiers
     :type FP: FantasyPros
+    :type DK: DraftKings
     :type player_object: PlayerModel
     :param player_object:
     :return:
@@ -47,6 +49,13 @@ def get_player_data_from_all_sources(player_object, FT, FP):
     except FantasyProsException:
         pass
 
+    try:
+        dk_data = DK.get_single_player_data(player_object.name)
+        player_object.dk_salary = dk_data['Salary']
+        player_object.dk_avg_ppg = dk_data['AvgPointsPerGame']
+    except DraftKingsException:
+        pass
+
 
 
 def rank_players_in_playerlist(playerlist):
@@ -63,13 +72,14 @@ def main():
     local_teams = load_teams(TEAM_YAML_LOC)
     FT = FantasyTiers()
     FP = FantasyPros()
+    DK = DraftKings()  # Data needs to be downloaded as CSV for league you care about.  Save as DKSalaries.csv.
     print 'local teams = ', local_teams
     print '== get player data test ==\n'
 
     # iterate over local_teams dictionary, and fill in all player data to the player object models.
     for team, playerlist in local_teams.iteritems():
         for player in playerlist:
-            get_player_data_from_all_sources(player, FT, FP)
+            get_player_data_from_all_sources(player, FT, FP, DK)
 
     ### We have all player data now ###
 
@@ -80,7 +90,7 @@ def main():
     # Team Lists have now been sorted.  Lets print the data.
 
     for team, playerlist in local_teams.iteritems():
-        pt = prettytable.PrettyTable(['Team', 'Player', 'Position', 'Tier', 'FP Rank', 'Opp', 'FPBest', 'FPWorst', 'FPAvg', 'FPStd_Dev'])
+        pt = prettytable.PrettyTable(['Team', 'Player', 'Position', 'Tier', 'FP Rank', 'Opp', 'FPBest', 'FPWorst', 'FPAvg', 'FPStd_Dev', 'DK_Salary', 'DK_Avg_PPG'])
         pt.align = 'r'
         for player in playerlist:
             player = player
@@ -97,7 +107,9 @@ def main():
                 player.fp_best,
                 player.fp_worst,
                 player.fp_avg,
-                player.fp_std_dev
+                player.fp_std_dev,
+                player.dk_salary,
+                player.dk_avg_ppg
             ])
         print pt
 

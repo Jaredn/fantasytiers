@@ -23,6 +23,10 @@ class PlayerModel:
     fp_avg = None
     fp_std_dev = None
 
+    # DraftKings Data
+    dk_salary = None
+    dk_avg_ppg = None
+
     def __init__(self, playername):
         self.name = playername
 

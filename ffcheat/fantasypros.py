@@ -27,10 +27,12 @@ class FantasyPros(object):
             # I have no fucking clue why, but 50 ALWAYS errors out on every list.  All players still show up.
             if index is not 50:
                 initial_data = [c.text_content() for c in row.getchildren()]
-                # player name is a link, so we grab its text individually inside the <a> element and update the list.
-                if row[1][0][0] is not None:
-                    playername = row[1][0][0].text
-                    initial_data[1] = playername
+                # 2015-10-05 i commented this block out - apparently i no longer need the hack to get player names.
+                # print initial_data
+                # # player name is a link, so we grab its text individually inside the <a> element and update the list.
+                # if row[1][0][0] is not None:
+                #     playername = row[1][0][0].text
+                #     initial_data[1] = playername
                 data.append(initial_data)
         return data
 

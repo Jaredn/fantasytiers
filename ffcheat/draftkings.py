@@ -23,7 +23,7 @@ class DraftKings(object):
             raise DraftKingsException('Player Not Found')
         return player_data
 
-    def load_salaries(self, filename='/Users/Jared/PycharmProjects/ffcheat/ffcheat/DKSalaries.csv'):
+    def load_salaries(self, filename='DKSalaries.csv'):
         self.salaries = []
         with open(filename, 'rb') as f:
             reader = csv.DictReader(f)

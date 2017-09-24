@@ -7,8 +7,8 @@ from lxml import html
 class FantasyProsException(Exception):
     pass
 
-class FantasyPros(object):
 
+class FantasyPros(object):
     fp_data = None
 
     def __init__(self, rankings_chart='qb-flex'):

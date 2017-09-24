@@ -8,7 +8,7 @@ from fantasytiers import FantasyTiers, FantasyTiersException
 from draftkings import DraftKings, DraftKingsException
 
 # models
-from player_model import PlayerModel
+from .player_model import PlayerModel
 
 def load_teams(yaml_loc):
     with open(yaml_loc, 'r') as stream:
@@ -57,7 +57,6 @@ def get_player_data_from_all_sources(player_object, FT, FP, DK=None):
         pass
 
 
-
 def rank_players_in_playerlist(playerlist):
     """
     :type playerlist: list[PlayerModel]
@@ -67,14 +66,15 @@ def rank_players_in_playerlist(playerlist):
     playerlist.sort(key=lambda x: x.fp_rank)
     return playerlist
 
+
 def main():
     TEAM_YAML_LOC = 'my_teams_config.yml'
     local_teams = load_teams(TEAM_YAML_LOC)
     FT = FantasyTiers()
     FP = FantasyPros()
     DK = DraftKings()  # Data needs to be downloaded as CSV for league you care about.  Save as DKSalaries.csv.
-    print 'local teams = ', local_teams
-    print '== get player data test ==\n'
+    print('local teams = ', local_teams)
+    print('== get player data test ==\n')
 
     # iterate over local_teams dictionary, and fill in all player data to the player object models.
     for team, playerlist in local_teams.iteritems():
@@ -111,7 +111,7 @@ def main():
                 player.dk_salary,
                 player.dk_avg_ppg
             ])
-        print pt
+        print(pt)
 
 if __name__ == '__main__':
     sys.exit(main())
